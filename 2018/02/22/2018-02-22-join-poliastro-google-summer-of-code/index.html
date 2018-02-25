@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="poliastro developer team">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Join poliastro thanks to Google Summer of Code! | poliastro</title>
+
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="alternate" type="application/atom+xml" title="poliastro blog atom feed" href="/feeds/all.atom.xml" />
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/theme/css/fontello.css"/>
+        <style>.highlight .hll { background-color: #ffffcc }
+.highlight .c { color: #60a0b0; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #007020; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #007020 } /* Comment.Preproc */
+.highlight .c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #007020 } /* Keyword.Pseudo */
+.highlight .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #902000 } /* Keyword.Type */
+.highlight .m { color: #40a070 } /* Literal.Number */
+.highlight .s { color: #4070a0 } /* Literal.String */
+.highlight .na { color: #4070a0 } /* Name.Attribute */
+.highlight .nb { color: #007020 } /* Name.Builtin */
+.highlight .nc { color: #0e84b5; font-weight: bold } /* Name.Class */
+.highlight .no { color: #60add5 } /* Name.Constant */
+.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #d55537; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #007020 } /* Name.Exception */
+.highlight .nf { color: #06287e } /* Name.Function */
+.highlight .nl { color: #002070; font-weight: bold } /* Name.Label */
+.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #bb60d5 } /* Name.Variable */
+.highlight .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #40a070 } /* Literal.Number.Float */
+.highlight .mh { color: #40a070 } /* Literal.Number.Hex */
+.highlight .mi { color: #40a070 } /* Literal.Number.Integer */
+.highlight .mo { color: #40a070 } /* Literal.Number.Oct */
+.highlight .sb { color: #4070a0 } /* Literal.String.Backtick */
+.highlight .sc { color: #4070a0 } /* Literal.String.Char */
+.highlight .sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4070a0 } /* Literal.String.Double */
+.highlight .se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #4070a0 } /* Literal.String.Heredoc */
+.highlight .si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
+.highlight .sx { color: #c65d09 } /* Literal.String.Other */
+.highlight .sr { color: #235388 } /* Literal.String.Regex */
+.highlight .s1 { color: #4070a0 } /* Literal.String.Single */
+.highlight .ss { color: #517918 } /* Literal.String.Symbol */
+.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #bb60d5 } /* Name.Variable.Class */
+.highlight .vg { color: #bb60d5 } /* Name.Variable.Global */
+.highlight .vi { color: #bb60d5 } /* Name.Variable.Instance */
+.highlight .il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
+        <style>body {
+  margin: 0;
+  padding: 0;
+  font: 15px 'Source Sans Pro', sans-serif;
+  line-height: 1.6em;
+  color: #222222;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: #007ee5;
+  text-decoration: none;
+}
+a:hover {
+  color: #007ee5;
+  text-decoration: none;
+}
+header.main-header {
+  background: none repeat scroll 0% 0% #205F29;
+  margin-bottom: 0px;
+}
+header.main-header a {
+  color: #fff;
+}
+header.main-header .container {
+  max-width: 1000px;
+}
+header.main-header .container nav a:hover {
+  background-color: #5C881C;
+}
+header.navbar-default {
+  border-bottom: none;
+  background-color: #EFEFEF;
+}
+article {
+  margin: 0;
+}
+article header.about {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+article header {
+  padding-bottom: 20px;
+}
+article header h1 {
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: #000;
+}
+article header time {
+  color: #9E9E9E;
+  float: right;
+}
+article header time.left {
+  color: #9E9E9E;
+  float: left;
+}
+article div.social-links ul {
+  padding: 0px;
+}
+article div.social-links li {
+  display: inline;
+  font-size: 20px;
+}
+article div.social-links li a {
+  color: #000;
+  padding: 10px;
+}
+article div.social-links li a:hover {
+  color: #666;
+  text-decoration: none;
+}
+article p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.6em;
+  text-align: justify;
+}
+article p.note {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 0.533em 0.733em;
+}
+article p.update {
+  background-color: #FEEFB3;
+  border: 1px solid #e6e68a;
+  padding: 0.533em 0.733em;
+}
+article p.alert {
+  background-color: #ffe2e2;
+  border: 1px solid #ffb2b2;
+  padding: 0.533em 0.733em;
+}
+article ul,
+article ol {
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+article li {
+  font-size: 16px;
+  line-height: 1.6em;
+}
+article a:hover {
+  text-decoration: underline;
+}
+article blockquote {
+  border-left: 2px solid #c7c7cc;
+  color: #666;
+  margin: 30px 0;
+  padding: 0 0 0 25px;
+}
+article img {
+  max-width: 100%;
+}
+article code {
+  color: #333;
+  background-color: #EEE;
+  border-radius: 0;
+  font-size: 13px;
+}
+article .meta {
+  margin-top: 35px;
+}
+article .meta a:hover {
+  text-decoration: none;
+}
+article .meta div {
+  display: block;
+}
+article .meta address:before,
+article .meta time:before,
+article .meta a.tag:before {
+  font-family: 'fontello';
+  margin-right: 6px;
+}
+article .meta address.author {
+  float: left;
+}
+article .meta address:before {
+  content: '\e819';
+}
+article .meta time:before {
+  content: '\f133';
+}
+article .meta div.tags {
+  clear: both;
+}
+article .meta a.tag {
+  margin: 0 10px 10px 0;
+  padding: 1px 12px;
+  display: inline-block;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.05);
+}
+article .meta a.tag:before {
+  content: '\e821';
+}
+article .meta a.tag:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+article .meta a.read_more,
+article .meta a.comments_btn {
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 20px;
+  color: #007aa3;
+  background: #FFF;
+  border: 1px solid #007aa3;
+}
+article .meta a.read_more:hover,
+article .meta a.comments_btn:hover {
+  color: #FFF;
+  background: #007aa3;
+}
+article .meta:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.index {
+  max-width: 700px;
+}
+.index article header h2 {
+  font-size: 36px;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+.index article header h2 a {
+  color: #333;
+}
+.index article header h2 a:hover {
+  color: #007ee5;
+  text-decoration: none;
+}
+.index .separator {
+  padding: 40px 0 0 0;
+  margin: 0 0 40px 0;
+  height: 10px;
+  border-bottom: solid 1px #CCC;
+}
+.index .pagination {
+  display: block;
+  margin-bottom: 100px;
+}
+.index .pagination .left {
+  text-align: right;
+}
+.index .pagination .right {
+  text-align: left;
+}
+.index .pagination a {
+  display: inline-block;
+  border: 2px solid #5C881C;
+  margin: 0 5px;
+  padding: 8px 20px;
+  font-weight: bold;
+  color: #5C881C;
+}
+.index .pagination a:hover {
+  color: #FFF;
+  background: #5C881C;
+}
+.post {
+  max-width: 700px;
+}
+.post h1 {
+  font-size: 42px;
+}
+.post h2:before {
+  content: "# ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post h3:before {
+  content: "## ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post h4:before {
+  content: "### ";
+  font-weight: bold;
+  color: #DDD;
+}
+.post p {
+  font-size: 18px;
+}
+.list {
+  max-width: 700px;
+}
+.list ul.double-list {
+  margin: 0 auto 60px;
+  padding: 0;
+  list-style-type: none;
+}
+.list ul.double-list li {
+  padding: 5px 0;
+}
+.list ul.double-list li h2 {
+  font-size: 1em;
+  display: inline;
+  font-weight: normal;
+}
+.list ul.double-list li span {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+  float: right;
+  padding-top: 3px;
+  font-size: 12px;
+  color: #999;
+}
+.full-width-content {
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+  padding-right: 0px;
+  padding-left: 0px;
+}</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+        <script type="text/javascript">
+        init_mathjax = function() {
+            if (window.MathJax) {
+                // MathJax loaded
+                MathJax.Hub.Config({
+                    tex2jax: {
+                        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                    },
+                    displayAlign: 'left', // Change this to 'center' to center equations.
+                    "HTML-CSS": {
+                        styles: {'.MathJax_Display': {"margin": 0}}
+                    }
+                });
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            }
+        }
+        init_mathjax();
+        </script>
+
+    </head>
+
+    <body>
+        <header style="background-color:#b5e0ec;color:#777;text-align:center">
+            You are seeing poliastro blog. If you want to see documentation, the latest version can be found in
+            <a href="http://docs.poliastro.space/en/latest" title="Documentation">docs.poliastro.space</a>.
+        </header>
+        <header class="navbar navbar-default bs-docs-nav">
+            <div class="container-fluid">
+                <div class="navbar-header">
+		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#theNavbar">
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span> 
+		  </button>
+                  <a class="navbar-brand" href="/" title="Home" class="title">poliastro</a>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="theNavbar">
+		    <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/pages/about-poliastro.html" title="About">About</a></li>
+                            <li><a href="/archives.html" title="Archive">Archive</a></li>
+                            <li><a class="nodec icon-rss" href="feeds/all.atom.xml" title="poliastro.github.io RSS feed" rel="me"></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div id="wrap">
+
+
+<div class="container post">
+    <article>
+        <header>
+            <h1>Join poliastro thanks to Google Summer of Code!</h1>
+            <div class="meta">
+                <time datetime="article.date.isoformat()" pubdate>Thu 22 February 2018</time>
+                <address class="vcard author">By
+                    <a class="url fn" href="http://poliastro.github.io/author/juan-luis-cano-rodriguez.html">Juan Luis Cano Rodríguez</a>
+                </address>
+            </div>
+        </header>
+
+        <div class="article_content">
+            <p>We are glad to announce that <strong>poliastro</strong> will accept student applications during Google Summer of Code this year, thanks to the umbrella organization OpenAstronomy! 🚀</p>
+<p>For the newcomers, poliastro is a pure Python library that allows you to easily simulate and visualize interplanetary orbits in an interactive way, <a href="http://docs.poliastro.space/en/v0.8.0/index.html#success-stories">used by people from all around the world</a>. Sounds interesting? Read on!</p>
+<h1>What is Google Summer of Code?</h1>
+<p><strong>Google Summer of Code</strong> (from now on, <strong>GSOC</strong>) is, according to <a href="https://summerofcode.withgoogle.com/">its own website</a>:</p>
+<blockquote>
+<p>a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 3 month programming project during their break from school.</p>
+</blockquote>
+<p><img alt="Google Summer of Code" src="https://upload.wikimedia.org/wikipedia/commons/1/1e/GSoC.png"></p>
+<p>GSOC is the inspiration for the Summer of Code in Space (SOCIS), a similar program organized by the European Space Agency in which <a href="http://blog.poliastro.space/2017/09/15/2017-09-15-poliastro-070-released-ready-pycones/">we also participated last year</a>, with great success.</p>
+<p>The process of GSOC before the coding starts goes more or less like this:</p>
+<ol>
+<li>Mentoring organizations apply ✔️</li>
+<li>they get accepted (yay!) ✔️</li>
+<li>students start getting familiar with the project of their choice ⬅</li>
+<li>they send a proposal (March 12 - 27, 2018), and</li>
+<li>they get accepted (hopefully! on April 23, 2018)</li>
+</ol>
+<p>How did we get to this point? Keep on reading!</p>
+<h2>What is OpenAstronomy?</h2>
+<p>This year is the first one we are participating, thanks to the umbrella organization <strong>OpenAstronomy</strong>, which is, again according to our own website:</p>
+<blockquote>
+<p>a collaboration between open source astronomy and astrophysics projects to share resources, ideas, and to improve code.</p>
+</blockquote>
+<p><a href="http://openastronomy.org/members/">poliastro is a project member of OpenAstronomy</a>, but there are many more: AstroPy, SunPy, JuliaAstro... Many of them are participating in GSOC!</p>
+<h2>Sounds interesting, how much do I get paid?</h2>
+<p>On the GSOC website you can find <a href="https://developers.google.com/open-source/gsoc/help/student-stipends">the stipend amount for each country</a>. For the country I come from, Spain, it's $5400 in total, which is roughly 1500 € per month. Of course, you first have to <a href="https://developers.google.com/open-source/gsoc/faq#what_are_the_eligibility_requirements_for_participation">meet the eligibility criteria</a>, send a successful proposal, and get accepted.</p>
+<h2>Awesome! How can I participate?</h2>
+<p>Fantastic! The first thing you should do is to select on which project you would like to participate. We would love to have you all in poliastro, but you might be more interested in Solar physics, or the Julia programming language, or Software Defined Radio... <a href="https://summerofcode.withgoogle.com/organizations/">There are tons of different projects</a>!</p>
+<p>Whichever project you would like to participate in, including poliastro, will have an "ideas list" somewhere. These ideas give you inspiration on what the project administrators expect from students, what is the functionality or new developments that they desire... But you can propose your own ideas as well! Here you can find the <a href="http://openastronomy.org/gsoc/gsoc2018/#/projects">ideas list for poliastro and the rest of OpenAstronomy projects</a>.</p>
+<p>And finally, once you have decided which project is your favourite, you should run and engage with it in some way. For poliastro we encourage you to <a href="https://riot.im/app/#/room/#poliastro:matrix.org">join our chat</a>, and other projects will have their own documentation channels.</p>
+<h2>Fair enough, but how do I get started?</h2>
+<p>I know, too much information, right? Here is a list of things you can do if you want to work with poliastro this summer:</p>
+<ul>
+<li><a href="https://riot.im/app/#/room/#poliastro:matrix.org">Join our chat</a> (you already did that, rigtht?)</li>
+<li><a href="http://docs.poliastro.space/">Read the documentation</a> (at least a little bit!)</li>
+<li><a href="https://beta.mybinder.org/v2/gh/poliastro/poliastro/master?filepath=index.ipynb">Play with the notebooks</a> (don't need to install anything!)</li>
+<li>Watch a talk about poliastro, like <a href="https://youtu.be/lpcp849dnLA">this one</a>!</li>
+<li><a href="https://github.com/poliastro/poliastro/">Clone the git repository</a>, and make sure that the tests pass</li>
+<li>Take a look at the <a href="https://github.com/poliastro/poliastro/issues">issues list</a></li>
+</ul>
+<p>You already have enough homework to get started, but don't get overwhelmed - just <a href="https://riot.im/app/#/room/#poliastro:matrix.org">join our chat</a> (did I forget to mention?) and say hello!</p>
+<h2>And then what?</h2>
+<p>And then... you decide! I can help you polish your proposal if you need to, find an idea to work on, give a hand with git, suggest a different project or organization based on your skills and interests... If you happen to send a good proposal to work on poliastro, you will have good chances to get selected and maybe we will have the opportunity to work together and learn a lot. Also perhaps <a href="http://2018.es.pycon.org/">give a talk in a conference</a> <a href="https://www.euroscipy.org/">or two</a>...</p>
+<p>I would greatly appreciate if you spread the word about this. I believe GSOC is a great opportunity to get in touch with open source and make a big contribution to science and technology.</p>
+<p>Before you leave, let me add a very important <strong>impostor syndrome disclaimer</strong> (from <a href="https://github.com/adriennefriend/imposter-syndrome-disclaimer#how-to-contribute">here</a>):</p>
+<blockquote>
+<p>I want your help. No really, I do.</p>
+<p>There might be a little voice inside that tells you you're not ready;
+that you need to do one more tutorial, or learn another framework, or
+write a few more blog posts before you can help me with this project.</p>
+<p>I assure you, that's not the case.</p>
+</blockquote>
+<p>If you have read this far, I hope to have you on board very soon :)</p>
+<p><em>Per Python ad astra!</em></p>
+        </div>
+
+        <div class="meta">
+            <div class="tags">
+                    <a href="http://poliastro.github.io/tag/gsoc.html" class="tag">GSOC</a>
+                    <a href="http://poliastro.github.io/tag/google.html" class="tag">Google</a>
+                    <a href="http://poliastro.github.io/tag/poliastro.html" class="tag">poliastro</a>
+                    <a href="http://poliastro.github.io/tag/students.html" class="tag">students</a>
+            </div>
+        </div>
+    </article>
+
+  <!-- <script data-isso="//localhost:1234"
+        data-isso-lang="en"
+        src="//localhost:1234/js/embed.min.js"></script>
+<section id="isso-thread">
+<h3>Comments</h3>
+</section>
+ -->
+
+</div>
+
+<style type="text/css">
+{
+    max-width: 700px;
+}
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+    max-width: 580px;
+}
+
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+pre code {
+    background-color: inherit;
+}</style>
+
+        </div>
+<!--
+    <footer>
+      <p>
+        © 2012-2017 poliastro developer team, license <a href="https://github.com/poliastro/poliastro.github.io-source/blob/master/LICENSE"> </a>
+        unless otherwise noted.
+        Generated by <a href= "http://docs.getpelican.com/">Pelican</a>.
+      </p>
+    </footer>
+-->
+    </body>
+</html>
